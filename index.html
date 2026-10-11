@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JEWEL — Honest Craft. Raw Beauty.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,600&family=Caveat:wght@400;600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="paper-texture">
+
+  <!-- Ambient Sound & Audio Toggle -->
+  <div class="sound-toggle-pill" id="soundToggle" title="Toggle Atmospheric Studio Sound">
+    <span class="sound-icon">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.08"></path></svg>
+    </span>
+    <span class="sound-label">Atelier Ambience</span>
+    <span class="sound-bars">
+      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+    </span>
+  </div>
+
+  <!-- Custom Loupe / Jewel Cursor -->
+  <div class="jewel-cursor" id="customCursor">
+    <div class="cursor-dot"></div>
+    <div class="cursor-ring"></div>
+    <div class="cursor-sparkle">✦</div>
+  </div>
+
+  <!-- Grain Overlay Filter (SVG Native) -->
+  <svg class="svg-filters" aria-hidden="true">
+    <filter id="paper-grain">
+      <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch" />
+      <feColorMatrix type="matrix" values="0 0 0 0 0.96   0 0 0 0 0.94   0 0 0 0 0.90  0 0 0 0.07 0" />
+    </filter>
+    <filter id="torn-edge">
+      <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="4" result="noise" />
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="6" xChannelSelector="R" yChannelSelector="G" />
+    </filter>
+  </svg>
+
+  <!-- Ambient Golden Dust Canvas -->
+  <canvas id="ambientCanvas"></canvas>
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <nav class="nav-left">
+      <a href="#collection" class="nav-link">Products</a>
+      <a href="#atelier" class="nav-link">Atelier</a>
+      <a href="#interactive-stack" class="nav-link">Studio Stack</a>
+      <a href="#philosophy" class="nav-link">Story</a>
+    </nav>
+
+    <div class="nav-center">
+      <a href="#" class="brand-logo" id="brandLogo">
+        <span class="logo-text">jewel</span>
+      </a>
+    </div>
+
+    <div class="nav-right">
+      <button class="nav-btn search-btn" id="searchBtn" aria-label="Search Collection">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+      </button>
+      <button class="nav-btn bag-btn" id="bagBtn" aria-label="View Shopping Bag">
+        <span class="bag-label">Bag</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+        <span class="bag-count" id="bagCount">0</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- HERO SECTION (Collage & Handcrafted Artboard) -->
+  <main class="hero-canvas" id="heroCanvas">
+
+    <!-- Dynamic SVG Doodle Line Overlays -->
+    <svg class="doodle-layer" id="doodleLayer" viewBox="0 0 1440 900" preserveAspectRatio="none">
+      <!-- Line from logo branching to Left Clay Card -->
+      <path class="sketch-path" id="sketchPath1" d="M 680, 75 C 600, 110 460, 95 380, 140 C 330, 170 300, 210 280, 260" />
+      <!-- Line branching from logo to Right Portrait Bracket -->
+      <path class="sketch-path" id="sketchPath2" d="M 760, 75 C 840, 100 960, 120 1060, 160 C 1120, 185 1160, 210 1190, 240" />
+      <!-- Hand-drawn bracket around right portrait -->
+      <path class="sketch-bracket" id="sketchBracket" d="M 1030, 220 L 1340, 220 L 1340, 680 L 1030, 680" />
+      <!-- Connecting line from bracket down to right polaroid -->
+      <path class="sketch-path" id="sketchPath3" d="M 1210, 690 C 1220, 750 1160, 790 1090, 810 C 1040, 825 990, 800 960, 780" />
+      <!-- Whimsical swirl from left clay block to center polaroids -->
+      <path class="sketch-path" id="sketchPath4" d="M 180, 580 C 120, 680 200, 740 280, 720 C 340, 700 390, 720 420, 750" />
+    </svg>
+
+    <!-- Center Hero Headline (Behind & Intertwined with elements) -->
+    <div class="hero-title-container">
+      <h1 class="hero-title">
+        <span class="title-line">honest craft.</span>
+        <span class="title-line italic-line">raw beauty.</span>
+      </h1>
+      <p class="hero-subtext">Individual hand-formed talismans, unrefined gold & conflict-free diamonds chiseled in slow rhythm.</p>
+      <div class="hero-cta-row">
+        <a href="#collection" class="pill-cta">Discover The Archive</a>
+        <a href="#interactive-stack" class="text-link-cta">Enter The Ring Stacker →</a>
+      </div>
+    </div>
+
+    <!-- Left Torn-Paper Clay Vessel Art Piece -->
+    <div class="torn-paper-card" id="clayCard" data-tilt>
+      <div class="tape-strip tape-top-left"></div>
+      <div class="torn-inner">
+        <div class="card-image-wrap">
+          <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=900&q=85" alt="Hand-hammered gold rings resting in raw sculpted ceramic clay" class="card-img" />
+          <div class="gem-shimmer"></div>
+        </div>
+        <div class="torn-caption">
+          <span class="handwritten-note">hand-carved earthenware & raw 18k</span>
+          <span class="edition-tag">Archive Piece No. 04</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Framed Editorial Portrait -->
+    <div class="editorial-frame" id="portraitFrame" data-tilt>
+      <div class="portrait-inner">
+        <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=900&q=85" alt="Model wearing delicate hand-finished stacking rings" class="portrait-img" />
+        <div class="portrait-overlay-tag">
+          <span class="tag-meta">The Stacking Suite</span>
+          <span class="tag-title">Aura Band & Chiseled Pavé</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Draggable / Interactive Polaroids at the Bottom -->
+    <div class="polaroid-dock" id="polaroidDock">
+
+      <!-- Polaroid 1 -->
+      <div class="polaroid-item" id="polaroid1" data-drag data-angle="-3">
+        <div class="washi-tape washi-center"></div>
+        <div class="polaroid-frame">
+          <div class="polaroid-photo">
+            <img src="https://images.unsplash.com/photo-1603561591411-07134e71a2a9?auto=format&fit=crop&w=600&q=80" alt="Minimal Solitaire Gold Ring" />
+            <div class="glint-effect"></div>
+          </div>
+          <div class="polaroid-caption">
+            <span class="handwritten-text">honest craft.</span>
+            <span class="caption-price">$480</span>
+          </div>
+        </div>
+        <div class="quick-add-btn" data-product="1" title="Add to Bag">+</div>
+      </div>
+
+      <!-- Polaroid 2 -->
+      <div class="polaroid-item" id="polaroid2" data-drag data-angle="2">
+        <div class="washi-tape washi-center"></div>
+        <div class="polaroid-frame">
+          <div class="polaroid-photo">
+            <img src="https://images.unsplash.com/photo-1598560917505-59a3ad559071?auto=format&fit=crop&w=600&q=80" alt="Eternity Twin Ring Set" />
+            <div class="glint-effect"></div>
+          </div>
+          <div class="polaroid-caption">
+            <span class="handwritten-text">raw beauty.</span>
+            <span class="caption-price">$620</span>
+          </div>
+        </div>
+        <div class="quick-add-btn" data-product="2" title="Add to Bag">+</div>
+      </div>
+
+      <!-- Polaroid 3 -->
+      <div class="polaroid-item" id="polaroid3" data-drag data-angle="-5">
+        <div class="washi-tape washi-center"></div>
+        <div class="polaroid-frame">
+          <div class="polaroid-photo">
+            <img src="https://images.unsplash.com/photo-1600003014755-ba31aa59c4b6?auto=format&fit=crop&w=600&q=80" alt="Quadruple Hammered Gold Stack" />
+            <div class="glint-effect"></div>
+          </div>
+          <div class="polaroid-caption">
+            <span class="handwritten-text">no. 07 eternity.</span>
+            <span class="caption-price">$890</span>
+          </div>
+        </div>
+        <div class="quick-add-btn" data-product="3" title="Add to Bag">+</div>
+      </div>
+
+    </div>
+
+    <!-- Interactive Hint Floating Pill -->
+    <div class="interaction-hint">
+      <span class="hint-hand">✎</span>
+      <span>Polaroids are draggable • Feel the tactile weight</span>
+    </div>
+
+  </main>
+
+  <!-- SECTION 2: INTERACTIVE RING STACKER STUDIO ("Out of this world" feature) -->
+  <section class="section-stacker" id="interactive-stack">
+    <div class="section-header-centered">
+      <span class="section-kicker">Interactive Atelier</span>
+      <h2 class="section-title">Curate Your Sacred Stack</h2>
+      <p class="section-desc">Drag handcrafted rings from the vault onto the mannequin hand to preview balance, proportions, and light play in real time.</p>
+    </div>
+
+    <div class="stacker-stage">
+      <!-- Left: The Vault of Rings to Pick -->
+      <div class="stacker-vault">
+        <h3 class="vault-title">Ring Tray</h3>
+        <p class="vault-sub">Click any piece to slide onto the finger</p>
+        
+        <div class="ring-tray-items">
+          <div class="tray-ring" data-ring-id="r1" data-ring-name="Hammered Solis Band" data-ring-price="340" data-img="https://images.unsplash.com/photo-1603561591411-07134e71a2a9?auto=format&fit=crop&w=300&q=80">
+            <div class="tray-thumb"><img src="https://images.unsplash.com/photo-1603561591411-07134e71a2a9?auto=format&fit=crop&w=300&q=80" alt="Solis Band"></div>
+            <div class="tray-info">
+              <span class="t-name">Hammered Solis Band</span>
+              <span class="t-meta">18k Yellow Gold • $340</span>
+            </div>
+            <button class="add-to-hand-btn">+ Stack</button>
+          </div>
+
+          <div class="tray-ring" data-ring-id="r2" data-ring-name="Raw Diamond Chisel" data-ring-price="580" data-img="https://images.unsplash.com/photo-1598560917505-59a3ad559071?auto=format&fit=crop&w=300&q=80">
+            <div class="tray-thumb"><img src="https://images.unsplash.com/photo-1598560917505-59a3ad559071?auto=format&fit=crop&w=300&q=80" alt="Diamond Chisel"></div>
+            <div class="tray-info">
+              <span class="t-name">Raw Diamond Chisel</span>
+              <span class="t-meta">0.32ct Rough Cut • $580</span>
+            </div>
+            <button class="add-to-hand-btn">+ Stack</button>
+          </div>
+
+          <div class="tray-ring" data-ring-id="r3" data-ring-name="Eternity Wave Band" data-ring-price="420" data-img="https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=300&q=80">
+            <div class="tray-thumb"><img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=300&q=80" alt="Wave Band"></div>
+            <div class="tray-info">
+              <span class="t-name">Eternity Wave Band</span>
+              <span class="t-meta">Textured White Gold • $420</span>
+            </div>
+            <button class="add-to-hand-btn">+ Stack</button>
+          </div>
+
+          <div class="tray-ring" data-ring-id="r4" data-ring-name="Obsidian Signet" data-ring-price="710" data-img="https://images.unsplash.com/photo-1600003014755-ba31aa59c4b6?auto=format&fit=crop&w=300&q=80">
+            <div class="tray-thumb"><img src="https://images.unsplash.com/photo-1600003014755-ba31aa59c4b6?auto=format&fit=crop&w=300&q=80" alt="Obsidian Signet"></div>
+            <div class="tray-info">
+              <span class="t-name">Obsidian Signet</span>
+              <span class="t-meta">Forged Carbon & Gold • $710</span>
+            </div>
+            <button class="add-to-hand-btn">+ Stack</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Center: The Live Interactive Hand Visualizer -->
+      <div class="hand-canvas-wrap">
+        <div class="hand-silhouette">
+          <!-- Stylized Minimalist Hand Illustration SVG -->
+          <svg viewBox="0 0 400 600" class="hand-svg" fill="none">
+            <path d="M 200,580 C 190,520 185,460 170,400 C 155,340 130,300 130,220 C 130,160 135,90 145,50 C 150,30 165,30 170,50 C 175,90 180,180 185,210 C 190,160 195,60 205,20 C 210,5 225,5 230,20 C 240,60 240,160 245,210 C 255,170 265,90 275,50 C 280,30 295,30 300,50 C 305,90 300,200 295,250 C 310,210 325,160 335,130 C 342,115 355,120 355,135 C 355,170 330,270 310,340 C 290,410 270,520 260,580 Z" 
+                  fill="#ebe3d7" stroke="#b8a995" stroke-width="1.2" stroke-dasharray="3 3"/>
+            <!-- Ring Stacking Zone on the Ring Finger -->
+            <rect x="175" y="240" width="40" height="90" fill="none" class="stack-target-zone"/>
+          </svg>
+
+          <!-- Stack Slot Container where rings live -->
+          <div class="ring-stack-container" id="ringStackContainer">
+            <div class="empty-stack-placeholder" id="emptyStackMsg">
+              <span>Touch any ring from the tray to stack on the finger</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="stack-controller">
+          <div class="stack-meta">
+            <span class="stack-label">Active Stack:</span>
+            <span class="stack-sum" id="stackTotal">$0</span>
+          </div>
+          <div class="stack-actions">
+            <button class="btn-outline" id="clearStackBtn">Reset Tray</button>
+            <button class="btn-solid" id="addEntireStackBtn">Add Stack to Bag (<span id="stackCount">0</span>)</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: THE RAW COLLECTION (Artisanal Gallery) -->
+  <section class="section-collection" id="collection">
+    <div class="section-header-split">
+      <div>
+        <span class="section-kicker">Permanent Archive</span>
+        <h2 class="section-title">Wabi-Sabi Silhouettes</h2>
+      </div>
+      <div class="filter-pills">
+        <button class="filter-pill active" data-filter="all">All Talismans</button>
+        <button class="filter-pill" data-filter="rings">Rings</button>
+        <button class="filter-pill" data-filter="necklaces">Pendants</button>
+        <button class="filter-pill" data-filter="earrings">Sculptural Ears</button>
+      </div>
+    </div>
+
+    <div class="product-grid" id="productGrid">
+      
+      <!-- Card 1 -->
+      <article class="product-card" data-category="rings" data-id="101">
+        <div class="card-media">
+          <span class="card-badge">Bespoke</span>
+          <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=700&q=80" alt="Chiseled Monolith Band" class="prod-img" />
+          <button class="quick-view-trigger" data-id="101">Inspect Gemstone</button>
+        </div>
+        <div class="card-details">
+          <div class="card-title-row">
+            <h3 class="prod-name">Chiseled Monolith Band</h3>
+            <span class="prod-price">$540</span>
+          </div>
+          <p class="prod-material">18k Recycled Yellow Gold • Individually Chiseled</p>
+          <button class="btn-card-add" data-id="101" data-name="Chiseled Monolith Band" data-price="540">Add to Bag</button>
+        </div>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="product-card" data-category="rings" data-id="102">
+        <div class="card-media">
+          <span class="card-badge">One of One</span>
+          <img src="https://images.unsplash.com/photo-1603561591411-07134e71a2a9?auto=format&fit=crop&w=700&q=80" alt="Raw Solitaire Talisman" class="prod-img" />
+          <button class="quick-view-trigger" data-id="102">Inspect Gemstone</button>
+        </div>
+        <div class="card-details">
+          <div class="card-title-row">
+            <h3 class="prod-name">Raw Solitaire Talisman</h3>
+            <span class="prod-price">$780</span>
+          </div>
+          <p class="prod-material">Uncut Salt-and-Pepper Diamond • Organic Prong Setting</p>
+          <button class="btn-card-add" data-id="102" data-name="Raw Solitaire Talisman" data-price="780">Add to Bag</button>
+        </div>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="product-card" data-category="necklaces" data-id="103">
+        <div class="card-media">
+          <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=700&q=80" alt="Molten Meteor Pendant" class="prod-img" />
+          <button class="quick-view-trigger" data-id="103">Inspect Gemstone</button>
+        </div>
+        <div class="card-details">
+          <div class="card-title-row">
+            <h3 class="prod-name">Molten Meteor Pendant</h3>
+            <span class="prod-price">$490</span>
+          </div>
+          <p class="prod-material">Lost-Wax Cast 14k Gold • Silk Cord Included</p>
+          <button class="btn-card-add" data-id="103" data-name="Molten Meteor Pendant" data-price="490">Add to Bag</button>
+        </div>
+      </article>
+
+      <!-- Card 4 -->
+      <article class="product-card" data-category="earrings" data-id="104">
+        <div class="card-media">
+          <span class="card-badge">Sculptural</span>
+          <img src="https://images.unsplash.com/photo-1630019852942-f89202989a59?auto=format&fit=crop&w=700&q=80" alt="Biomorphic Ear Huggies" class="prod-img" />
+          <button class="quick-view-trigger" data-id="104">Inspect Gemstone</button>
+        </div>
+        <div class="card-details">
+          <div class="card-title-row">
+            <h3 class="prod-name">Biomorphic Fluid Huggies</h3>
+            <span class="prod-price">$380</span>
+          </div>
+          <p class="prod-material">Asymmetrical Pair • Hand-Polished 18k Vermeil</p>
+          <button class="btn-card-add" data-id="104" data-name="Biomorphic Fluid Huggies" data-price="380">Add to Bag</button>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- SECTION 4: THE ATELIER PHILOSOPHY (Editorial Storytelling) -->
+  <section class="section-philosophy" id="philosophy">
+    <div class="philosophy-container">
+      
+      <div class="phil-col-text">
+        <span class="section-kicker">Our Manifesto</span>
+        <h2 class="phil-heading">“Imperfection is where the human soul hides.”</h2>
+        <div class="phil-paragraphs">
+          <p>We reject the mechanical perfection of mass assembly. In our studio, every curve begins as a wax model shaped by hand, left with the subtle fingerprint of the artisan who carved it.</p>
+          <p>We work exclusively with certified 100% recycled gold and ethically unearthed gemstones whose natural inclusions are celebrated as geological memories, not flaws to be cut away.</p>
+        </div>
+
+        <div class="manifesto-points">
+          <div class="point-item">
+            <span class="point-num">01</span>
+            <div class="point-content">
+              <strong>Slow Rhythm</strong>
+              <p>Each design takes 4 weeks of hand finishing and fire testing.</p>
+            </div>
+          </div>
+          <div class="point-item">
+            <span class="point-num">02</span>
+            <div class="point-content">
+              <strong>Circular Earth</strong>
+              <p>Zero virgin mining. 100% certified recycled precious metals.</p>
+            </div>
+          </div>
+          <div class="point-item">
+            <span class="point-num">03</span>
+            <div class="point-content">
+              <strong>Heirloom Guarantee</strong>
+              <p>Free lifetime re-sizing, polishing, and restoration.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="phil-col-visual">
+        <div class="photo-composition">
+          <div class="photo-main">
+            <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=800&q=80" alt="Jeweler crafting with fire and torch at the workbench" />
+            <div class="caption-stamp">ATELIER N° 3 • PARIS</div>
+          </div>
+          <div class="photo-floating-polaroid" data-tilt>
+            <div class="washi-tape washi-center"></div>
+            <img src="https://images.unsplash.com/photo-1600003014755-ba31aa59c4b6?auto=format&fit=crop&w=400&q=80" alt="Molten gold details" />
+            <span class="handwritten-text">hammered by hand.</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer-vintage">
+    <div class="footer-top">
+      <div class="footer-brand-col">
+        <span class="footer-logo">jewel</span>
+        <p class="footer-mission">Honest craft. Raw beauty. Sculpted timelessness from our workshops to your skin.</p>
+        <span class="footer-copy">© 2026 Jewel Atelier. All rights reserved.</span>
+      </div>
+
+      <div class="footer-links-col">
+        <h4>Archive</h4>
+        <ul>
+          <li><a href="#collection">Raw Gold Bands</a></li>
+          <li><a href="#collection">Meteor Pendants</a></li>
+          <li><a href="#interactive-stack">The Ring Stacker</a></li>
+          <li><a href="#collection">Bespoke Commissions</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links-col">
+        <h4>The House</h4>
+        <ul>
+          <li><a href="#philosophy">Our Manifesto</a></li>
+          <li><a href="#atelier">Kyoto & Paris Studios</a></li>
+          <li><a href="#philosophy">Ethical Sourcing</a></li>
+          <li><a href="#contact">Care & Repair</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-newsletter-col">
+        <h4>The Journal</h4>
+        <p>Receive private invitations to limited batch ingot melts.</p>
+        <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Welcome to the Jewel Atelier Circle.');">
+          <input type="email" placeholder="Your email address" required />
+          <button type="submit">→</button>
+        </form>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SLIDE-OUT SHOPPING BAG DRAWER -->
+  <div class="bag-overlay" id="bagOverlay"></div>
+  <aside class="bag-drawer" id="bagDrawer">
+    <div class="bag-header">
+      <div class="bag-title-wrap">
+        <h3>Your Collection</h3>
+        <span class="bag-items-badge" id="bagDrawerCount">0 items</span>
+      </div>
+      <button class="bag-close-btn" id="bagCloseBtn">&times;</button>
+    </div>
+
+    <div class="bag-body" id="bagItemsContainer">
+      <!-- Items dynamically populated via JS -->
+      <div class="bag-empty-state">
+        <span class="empty-icon">✧</span>
+        <p>Your jewelry tray is empty.</p>
+        <span class="empty-sub">Explore the archive or stack your rings above.</span>
+      </div>
+    </div>
+
+    <div class="bag-footer">
+      <div class="bag-subtotal-row">
+        <span>Estimated Total</span>
+        <span class="bag-subtotal" id="bagSubtotal">$0</span>
+      </div>
+      <p class="bag-shipping-note">Complimentary insured climate-neutral courier delivery worldwide.</p>
+      <button class="btn-checkout" id="checkoutBtn">Proceed to Checkout</button>
+    </div>
+  </aside>
+
+  <!-- MODAL: GEMSTONE QUICK INSPECT -->
+  <div class="modal-overlay" id="inspectModal">
+    <div class="modal-card">
+      <button class="modal-close-btn" id="modalCloseBtn">&times;</button>
+      <div class="modal-grid">
+        <div class="modal-media">
+          <img id="modalImg" src="" alt="Gemstone Inspection View" />
+          <div class="loupe-ring-overlay"></div>
+        </div>
+        <div class="modal-info">
+          <span class="modal-kicker">Master Jeweler's Spec</span>
+          <h2 id="modalTitle">Ring Spec</h2>
+          <div class="modal-price" id="modalPrice">$0</div>
+          <p id="modalDesc">Hand-chiseled from 18k solid gold.</p>
+
+          <div class="specs-table">
+            <div class="spec-row">
+              <span class="spec-key">Metal</span>
+              <span class="spec-val" id="modalMetal">18k Fairmined Gold</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-key">Finish</span>
+              <span class="spec-val" id="modalFinish">Hammered Raw Satin</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-key">Origin</span>
+              <span class="spec-val">Paris Atelier No. 3</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-key">Sizing</span>
+              <span class="spec-val">Tailored to Order (US 4 - 12)</span>
+            </div>
+          </div>
+
+          <button class="btn-modal-add" id="modalAddBtn">Add This Piece to Bag</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
