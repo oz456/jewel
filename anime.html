@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JEWEL × 匠 — Ghibli Inspired Anime Atelier</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Caveat:wght@400;600&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="paper-texture page-anime-theme">
+
+  <!-- Ambient Sound / Atelier Whisper Toggle -->
+  <div class="sound-toggle-pill" id="soundToggle" title="Toggle Anime Forest Ambience">
+    <span class="sound-icon">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.08"></path></svg>
+    </span>
+    <span class="sound-label">Forest Melody • 風の音</span>
+    <span class="sound-bars">
+      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+    </span>
+  </div>
+
+  <!-- Custom Tactile Ring Loupe Cursor -->
+  <div class="jewel-cursor" id="customCursor">
+    <div class="cursor-dot"></div>
+    <div class="cursor-ring"></div>
+    <div class="cursor-sparkle">✦</div>
+  </div>
+
+  <!-- Falling Cherry Blossom Sakura Petals & Magic Firefly Canvas -->
+  <canvas id="animeCanvas"></canvas>
+
+  <!-- Navigation Bar with Page Switchers -->
+  <header class="navbar navbar-subpage">
+    <div class="nav-left">
+      <a href="index.html" class="nav-back-link">← Atelier Home</a>
+    </div>
+
+    <div class="nav-center">
+      <a href="index.html" class="brand-logo" id="brandLogo">
+        <span class="logo-text">jewel</span>
+      </a>
+      <span class="nav-subtitle">Ghibli Atelier • 匠 Edition</span>
+    </div>
+
+    <div class="nav-right">
+      <div class="page-pills">
+        <a href="collections.html" class="page-pill">Archive Catalog</a>
+        <a href="anime.html" class="page-pill pill-anime active">Ghibli 匠</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ANIME THEMED HERO BOARD -->
+  <main class="anime-hero-wrap">
+
+    <div class="anime-hero-banner">
+      <div class="anime-badge-pill">
+        <span class="badge-kanji">スタジオ工芸</span>
+        <span class="badge-text">Studio Handcrafted Collection</span>
+      </div>
+      <h1 class="anime-main-title">Forged in the Forest Hearth.</h1>
+      <p class="anime-lead-copy">Remember the magic of childhood movies — warm chimneys on moving castles, enchanted soot spirits in forgotten corners, and magical talismans found beneath mossy roots. We forged that nostalgic world into raw, wearable 18k gold (₹1,500 – ₹4,500).</p>
+
+      <!-- Ghibli Relic Feature Cards (Interactive Showcase) -->
+      <div class="ghibli-feature-banner">
+        <div class="ghibli-scene-card">
+          <div class="scene-tag">Hearth Fire • 炎</div>
+          <div class="scene-icon">🔥</div>
+          <h4>Pine Charcoal Smelted</h4>
+          <p>Each ingot is melted with authentic pine coal, leaving living textures on 18k solid gold.</p>
+        </div>
+        <div class="ghibli-scene-card featured">
+          <div class="scene-tag">Soot & Starlight • 星</div>
+          <div class="scene-icon">✨</div>
+          <h4>Untreated Earth Crystal</h4>
+          <p>Uncut diamonds & raw crystals that look like fallen Laputa aether stones.</p>
+        </div>
+        <div class="ghibli-scene-card">
+          <div class="scene-tag">The Wind Bell • 鈴</div>
+          <div class="scene-icon">🎐</div>
+          <h4>Signed Provenance</h4>
+          <p>Accompanied by a cedar wood box and a hand-stamped wax certificate.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ANIME JEWELRY SHOWCASE -->
+    <section class="anime-chapter-section" id="anime-creations">
+      <div class="chapter-header-wrap">
+        <span class="chapter-num">スタジオ名品 • CHAPTER 01</span>
+        <h2 class="chapter-title">Enchanted Studio Relics</h2>
+        <p class="chapter-sub">Numbered handmade pieces inspired by Japanese animation legends (₹1,850 – ₹4,200).</p>
+      </div>
+
+      <div class="anime-specimen-grid">
+
+        <!-- Card 1: Calcifer Hearth Ember Band -->
+        <article class="anime-product-card" data-tilt>
+          <div class="anime-card-media">
+            <span class="anime-stamp">火の玉 • Hearth Fire</span>
+            <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=700&q=80" alt="Hearth Hammered Gold Band" />
+            <div class="anime-glint-spark">🔥</div>
+          </div>
+          <div class="anime-card-info">
+            <div class="anime-card-heading">
+              <h3>Hearth Ember Band</h3>
+              <span class="anime-price">₹2,400</span>
+            </div>
+            <p class="anime-lore">Inspired by Howl’s furnace spirit. Hand-hammered with organic soot pits and a warm raw satin gold finish.</p>
+            <div class="anime-card-footer">
+              <span class="material-tag">18k Recycled Gold • India</span>
+              <a href="mailto:concierge@jewel-atelier.com?subject=Claim%20Hearth%20Ember%20Band" class="btn-anime-inquire">Claim Relic</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 2: Mononoke Forest Rough Talisman -->
+        <article class="anime-product-card" data-tilt>
+          <div class="anime-card-media">
+            <span class="anime-stamp">森の心 • Forest Heart</span>
+            <img src="https://images.unsplash.com/photo-1603561591411-07134e71a2a9?auto=format&fit=crop&w=700&q=80" alt="Forest Rough Gem Solitaire" />
+            <div class="anime-glint-spark">🍃</div>
+          </div>
+          <div class="anime-card-info">
+            <div class="anime-card-heading">
+              <h3>Forest Talisman Solitaire</h3>
+              <span class="anime-price">₹3,800</span>
+            </div>
+            <p class="anime-lore">Uncut rough geological crystal held in four organic prongs shaped like mossy cedar branches.</p>
+            <div class="anime-card-footer">
+              <span class="material-tag">0.68ct Rough Crystal • 18k</span>
+              <a href="mailto:concierge@jewel-atelier.com?subject=Claim%20Forest%20Talisman" class="btn-anime-inquire">Claim Relic</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 3: Laputa Aether Ingot Pendant -->
+        <article class="anime-product-card" data-tilt>
+          <div class="anime-card-media">
+            <span class="anime-stamp">天空 • Laputa Aether</span>
+            <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=700&q=80" alt="Laputa Stone Gold Pendant" />
+            <div class="anime-glint-spark">✦</div>
+          </div>
+          <div class="anime-card-info">
+            <div class="anime-card-heading">
+              <h3>Aether Ingot Pendant</h3>
+              <span class="anime-price">₹4,200</span>
+            </div>
+            <p class="anime-lore">A suspended molten droplet modeled after levitating aether stones, tied on braided indigo Japanese silk cord.</p>
+            <div class="anime-card-footer">
+              <span class="material-tag">Lost-Wax Casting • Silk Cord</span>
+              <a href="mailto:concierge@jewel-atelier.com?subject=Claim%20Aether%20Ingot" class="btn-anime-inquire">Claim Relic</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 4: Spirited River Bathhouse Band -->
+        <article class="anime-product-card" data-tilt>
+          <div class="anime-card-media">
+            <span class="anime-stamp">川の主 • River Dragon</span>
+            <img src="https://images.unsplash.com/photo-1598560917505-59a3ad559071?auto=format&fit=crop&w=700&q=80" alt="River Water Wave Band" />
+            <div class="anime-glint-spark">🌊</div>
+          </div>
+          <div class="anime-card-info">
+            <div class="anime-card-heading">
+              <h3>Kohaku River Band</h3>
+              <span class="anime-price">₹3,200</span>
+            </div>
+            <p class="anime-lore">Fluid undulating ripple lines engraved by chisel, mimicking the current of an enchanted mountain river.</p>
+            <div class="anime-card-footer">
+              <span class="material-tag">Solid 18k Yellow Gold</span>
+              <a href="mailto:concierge@jewel-atelier.com?subject=Claim%20Kohaku%20River%20Band" class="btn-anime-inquire">Claim Relic</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ANIME PHILOSOPHY: THE SPIRIT OF WABI-SABI (詫び寂び) -->
+    <section class="anime-philosophy-banner">
+      <div class="philosophy-kanji-watermark">無常</div>
+      <div class="phil-content-box" data-scroll-reveal>
+        <span class="phil-sub">The Ghibli Principle of Handcraft</span>
+        <h2 class="phil-title">“Things made with love carry a soul.”</h2>
+        <p class="phil-text">Mass luxury tries to erase all human warmth with laser perfection and robotic assembly. In anime tradition, objects that are cared for and crafted by human hands awaken with a spirit of their own (付喪神 - Tsukumogami). We leave the hammer strokes visible because that is where the soul lives.</p>
+        <div class="anime-author-credit">
+          <span class="credit-author">Jewel Atelier • Kyoto & India</span>
+          <span class="credit-kanji">匠の精神 • Takumi Spirit</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- BESPOKE ANIME INQUIRY SHRINE -->
+    <section class="anime-shrine-section">
+      <div class="shrine-box" data-scroll-reveal>
+        <div class="shrine-torii-accent">⛩</div>
+        <h3 class="shrine-title">Commission a Custom Anime Relic</h3>
+        <p class="shrine-desc">Dreaming of a bespoke talisman, personalized ring engraving, or custom uncut gemstone? Send word directly to our smiths.</p>
+        <a href="mailto:concierge@jewel-atelier.com?subject=Anime%20Custom%20Commission%20Inquiry" class="btn-anime-shrine">Send Word to Atelier →</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- REFINED ARTISANAL FOOTER -->
+  <footer class="footer-artisan">
+    <div class="footer-tape-accent"></div>
+    <div class="footer-content-wrap">
+      
+      <div class="foot-col-brand">
+        <span class="foot-logo-calligraphy">jewel</span>
+        <span class="foot-creed">honest craft. raw beauty.</span>
+        
+        <div class="foot-hallmarks" title="Studio Hallmarks — Click to inspect">
+          <span class="hallmark-stamp" data-sound="440" title="18k Certified Fairmined Gold">750</span>
+          <span class="hallmark-stamp" data-sound="554" title="Hand-Chiseled Ingot">⚒</span>
+          <span class="hallmark-stamp" data-sound="659" title="Atelier Batch No. 04">№4</span>
+          <span class="hallmark-stamp" data-sound="880" title="Pure Geological Inclusions">✧</span>
+        </div>
+      </div>
+
+      <div class="foot-col-status">
+        <div class="studio-status-box">
+          <span class="status-pulse-dot"></span>
+          <div class="status-texts">
+            <span class="status-state">Hearth Fire Burning</span>
+            <span class="status-time">Kyoto & India • 匠</span>
+          </div>
+        </div>
+        <p class="status-note">Anime Edition: inspired by Studio Ghibli, Howl's hearth, and the philosophy of wabi-sabi.</p>
+      </div>
+
+      <div class="foot-col-origin">
+        <button class="btn-return-origin" id="btnReturnTop" aria-label="Return to top">
+          <span class="return-arrow">↑</span>
+          <span class="return-text">Return to Top</span>
+        </button>
+        <div class="footer-page-links">
+          <a href="index.html">Atelier</a> • 
+          <a href="collections.html">Archive</a> • 
+          <a href="anime.html">Ghibli 匠</a>
+        </div>
+        <span class="foot-copyright">© 2026 Jewel Atelier. All creations sovereign.</span>
+      </div>
+
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <!-- Dedicated Anime Atmosphere Engine: Falling Sakura & Kodama Fireflies -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const animeCanvas = document.getElementById('animeCanvas');
+      if (!animeCanvas) return;
+      const ctx = animeCanvas.getContext('2d');
+
+      function resize() {
+        animeCanvas.width = window.innerWidth;
+        animeCanvas.height = window.innerHeight;
+      }
+      window.addEventListener('resize', resize);
+      resize();
+
+      class SakuraPetal {
+        constructor() {
+          this.reset(true);
+        }
+        reset(initial = false) {
+          this.x = Math.random() * animeCanvas.width;
+          this.y = initial ? Math.random() * animeCanvas.height : -20;
+          this.size = Math.random() * 8 + 6;
+          this.speedY = Math.random() * 0.8 + 0.4;
+          this.speedX = Math.random() * 0.6 + 0.2;
+          this.angle = Math.random() * 360;
+          this.rotationSpeed = (Math.random() - 0.5) * 1.5;
+          this.opacity = Math.random() * 0.5 + 0.35;
+          this.flip = Math.random();
+          this.flipSpeed = Math.random() * 0.03 + 0.01;
+        }
+        update() {
+          this.y += this.speedY;
+          this.x += Math.sin(this.angle * 0.02) * this.speedX + 0.2;
+          this.angle += this.rotationSpeed;
+          this.flip += this.flipSpeed;
+
+          if (this.y > animeCanvas.height + 20 || this.x > animeCanvas.width + 20) {
+            this.reset();
+          }
+        }
+        draw() {
+          ctx.save();
+          ctx.translate(this.x, this.y);
+          ctx.rotate((this.angle * Math.PI) / 180);
+          ctx.scale(Math.sin(this.flip), 1);
+
+          ctx.beginPath();
+          ctx.fillStyle = `rgba(235, 182, 172, ${this.opacity})`;
+          ctx.moveTo(0, 0);
+          ctx.bezierCurveTo(this.size * 0.4, -this.size * 0.6, this.size * 0.9, -this.size * 0.3, this.size, 0);
+          ctx.bezierCurveTo(this.size * 0.9, this.size * 0.3, this.size * 0.4, this.size * 0.6, 0, 0);
+          ctx.fill();
+
+          ctx.restore();
+        }
+      }
+
+      class KodamaSpore {
+        constructor() {
+          this.reset();
+        }
+        reset() {
+          this.x = Math.random() * animeCanvas.width;
+          this.y = Math.random() * animeCanvas.height;
+          this.size = Math.random() * 2.5 + 1;
+          this.speedY = -(Math.random() * 0.25 + 0.05);
+          this.speedX = (Math.random() - 0.5) * 0.3;
+          this.opacity = Math.random() * 0.5 + 0.2;
+          this.pulse = Math.random() * Math.PI * 2;
+        }
+        update() {
+          this.y += this.speedY;
+          this.x += this.speedX;
+          this.pulse += 0.02;
+          if (this.y < -10) this.reset();
+        }
+        draw() {
+          const glow = Math.sin(this.pulse) * 0.25 + this.opacity;
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(245, 230, 180, ${Math.max(0.1, glow)})`;
+          ctx.shadowBlur = 10;
+          ctx.shadowColor = '#ffd875';
+          ctx.fill();
+        }
+      }
+
+      const petals = Array.from({ length: 28 }, () => new SakuraPetal());
+      const spores = Array.from({ length: 24 }, () => new KodamaSpore());
+
+      function render() {
+        ctx.clearRect(0, 0, animeCanvas.width, animeCanvas.height);
+        petals.forEach(p => { p.update(); p.draw(); });
+        spores.forEach(s => { s.update(); s.draw(); });
+        requestAnimationFrame(render);
+      }
+      render();
+    });
+  </script>
+</body>
+</html>

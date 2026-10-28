@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JEWEL Archive — All Handcrafted Pieces</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Caveat:wght@400;600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="paper-texture page-collections">
+
+  <!-- Ambient Sound / Atelier Whisper Toggle -->
+  <div class="sound-toggle-pill" id="soundToggle" title="Toggle Atelier Whisper">
+    <span class="sound-icon">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.08"></path></svg>
+    </span>
+    <span class="sound-label">Atelier Melody</span>
+    <span class="sound-bars">
+      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+    </span>
+  </div>
+
+  <!-- Custom Tactile Ring Loupe Cursor -->
+  <div class="jewel-cursor" id="customCursor">
+    <div class="cursor-dot"></div>
+    <div class="cursor-ring"></div>
+    <div class="cursor-sparkle">✦</div>
+  </div>
+
+  <!-- Ambient Golden Dust Canvas -->
+  <canvas id="ambientCanvas"></canvas>
+
+  <!-- Navigation Bar with Page Switchers -->
+  <header class="navbar navbar-subpage">
+    <div class="nav-left">
+      <a href="index.html" class="nav-back-link">← Atelier Home</a>
+    </div>
+
+    <div class="nav-center">
+      <a href="index.html" class="brand-logo" id="brandLogo">
+        <span class="logo-text">jewel</span>
+      </a>
+      <span class="nav-subtitle">Permanent Archive</span>
+    </div>
+
+    <div class="nav-right">
+      <div class="page-pills">
+        <a href="collections.html" class="page-pill active">Archive</a>
+        <a href="anime.html" class="page-pill pill-anime">Ghibli • 匠</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO BANNER FOR ARCHIVE -->
+  <main class="collection-page-wrap">
+    
+    <header class="collection-hero-header">
+      <div class="tape-strip tape-center"></div>
+      <span class="collection-kicker">Catalog of Works • ₹1,000 – ₹5,000</span>
+      <h1 class="collection-page-title">Honest Metal, Geological Stones.</h1>
+      <p class="collection-page-desc">Every piece is hammered individually from recycled 18k gold ingot and earth-forged mineral inclusions. Click any specimen to inspect under jeweler's magnification.</p>
+
+      <!-- Category Filter Pills -->
+      <div class="archive-filter-row">
+        <button class="archive-filter-btn active" data-filter="all">All Specimens (12)</button>
+        <button class="archive-filter-btn" data-filter="rings">Rings & Bands</button>
+        <button class="archive-filter-btn" data-filter="pendants">Talismans & Pendants</button>
+        <button class="archive-filter-btn" data-filter="ears">Sculptural Ears</button>
+        <button class="archive-filter-btn" data-filter="bespoke">One-of-One</button>
+      </div>
+    </header>
+
+    <!-- PRODUCT ARCHIVE GRID -->
+    <section class="archive-grid" id="archiveGrid">
+
+      <!-- Item 1 -->
+      <article class="archive-card" data-category="rings">
+        <div class="archive-media" data-tilt>
+          <div class="washi-tape washi-corner"></div>
+          <img src="https://images.unsplash.com/photo-1603561591411-07134e71a2a9?auto=format&fit=crop&w=700&q=80" alt="Minimal Solitaire Gold Ring" class="archive-img" />
+          <span class="spec-id-tag">No. 01 / RNG</span>
+        </div>
+        <div class="archive-meta">
+          <div class="archive-title-line">
+            <h3 class="archive-item-title">Solis Solitaire Ring</h3>
+            <span class="archive-price">₹1,850</span>
+          </div>
+          <span class="archive-materials">18k Fairmined Gold • Unrefined Salt-and-Pepper Rough Diamond</span>
+          <p class="archive-note">Single chiseled prong setting, raw hammered satin band.</p>
+          <button class="btn-inspect-spec" data-id="1">Inspect Specimen →</button>
+        </div>
+      </article>
+
+      <!-- Item 2 -->
+      <article class="archive-card" data-category="rings">
+        <div class="archive-media" data-tilt>
+          <div class="washi-tape washi-corner"></div>
+          <img src="https://images.unsplash.com/photo-1598560917505-59a3ad559071?auto=format&fit=crop&w=700&q=80" alt="Eternity Twin Ring Set" class="archive-img" />
+          <span class="spec-id-tag">No. 02 / RNG</span>
+        </div>
+        <div class="archive-meta">
+          <div class="archive-title-line">
+            <h3 class="archive-item-title">Eternity Twin Set</h3>
+            <span class="archive-price">₹3,200</span>
+          </div>
+          <span class="archive-materials">Double 18k Yellow Gold Ingot • Natural Facet Variance</span>
+          <p class="archive-note">Twin nesting bands cast together from one molten drop.</p>
+          <button class="btn-inspect-spec" data-id="2">Inspect Specimen →</button>
+        </div>
+      </article>
+
+      <!-- Item 3 -->
+      <article class="archive-card" data-category="rings">
+        <div class="archive-media" data-tilt>
+          <div class="washi-tape washi-corner"></div>
+          <img src="https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?auto=format&fit=crop&w=700&q=80" alt="Raw Hammered Gold Signet" class="archive-img" />
+          <span class="spec-id-tag">No. 03 / RNG</span>
+        </div>
+        <div class="archive-meta">
+          <div class="archive-title-line">
+            <h3 class="archive-item-title">Raw Form Signet</h3>
+            <span class="archive-price">₹2,800</span>
+          </div>
+          <span class="archive-materials">Heavy 18k Recycled Solid Gold • Soapstone Cast Face</span>
+          <p class="archive-note">Face left unpolished with authentic porous foundry texture.</p>
+          <button class="btn-inspect-spec" data-id="3">Inspect Specimen →</button>
+        </div>
+      </article>
+
+      <!-- Item 4 -->
+      <article class="archive-card" data-category="rings bespoke">
+        <div class="archive-media" data-tilt>
+          <span class="archive-badge">One of One</span>
+          <div class="washi-tape washi-corner"></div>
+          <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=700&q=80" alt="Solis Raw Band" class="archive-img" />
+          <span class="spec-id-tag">No. 04 / OOO</span>
+        </div>
+        <div class="archive-meta">
+          <div class="archive-title-line">
+            <h3 class="archive-item-title">Chiseled Monolith Band</h3>
+            <span class="archive-price">₹2,400</span>
+          </div>
+          <span class="archive-materials">Heavy Gauge 18k Yellow Gold • Flat-Carved Facets</span>
+          <p class="archive-note">Reflects flickering candlelight with broad geometric planes.</p>
+          <button class="btn-inspect-spec" data-id="4">Inspect Specimen →</button>
+        </div>
+      </article>
+
+      <!-- Item 5 -->
+      <article class="archive-card" data-category="pendants">
+        <div class="archive-media" data-tilt>
+          <div class="washi-tape washi-corner"></div>
+          <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=700&q=80" alt="Molten Meteor Talisman" class="archive-img" />
+          <span class="spec-id-tag">No. 05 / PND</span>
+        </div>
+        <div class="archive-meta">
+          <div class="archive-title-line">
+            <h3 class="archive-item-title">Molten Meteor Talisman</h3>
+            <span class="archive-price">₹3,900</span>
+          </div>
+          <span class="archive-materials">Lost-Wax 18k Gold • Braided Japanese Raw Silk Cord</span>
+          <p class="archive-note">Organic droplet shape modeled directly after cooling meteoric ore.</p>
+          <button class="btn-inspect-spec" data-id="5">Inspect Specimen →</button>
+        </div>
+      </article>
+
+      <!-- Item 6 -->
+      <article class="archive-card" data-category="ears">
+        <div class="archive-media" data-tilt>
+          <div class="washi-tape washi-corner"></div>
+          <img src="https://images.unsplash.com/photo-1630019852942-f89202989a59?auto=format&fit=crop&w=700&q=80" alt="Fluid Biomorphic Ear Hugs" class="archive-img" />
+          <span class="spec-id-tag">No. 06 / EAR</span>
+        </div>
+        <div class="archive-meta">
+          <div class="archive-title-line">
+            <h3 class="archive-item-title">Biomorphic Fluid Hugs</h3>
+            <span class="archive-price">₹2,600</span>
+          </div>
+          <span class="archive-materials">Solid 18k Gold Clasp • Asymmetrical Left/Right Lobe Curve</span>
+          <p class="archive-note">Sculpted to wrap around the natural curve of the human ear.</p>
+          <button class="btn-inspect-spec" data-id="6">Inspect Specimen →</button>
+        </div>
+      </article>
+
+      <!-- Item 7 -->
+      <article class="archive-card" data-category="pendants bespoke">
+        <div class="archive-media" data-tilt>
+          <span class="archive-badge">Rare Geological</span>
+          <div class="washi-tape washi-corner"></div>
+          <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=700&q=80" alt="Forged Ingot Talisman" class="archive-img" />
+          <span class="spec-id-tag">No. 07 / PND</span>
+        </div>
+        <div class="archive-meta">
+          <div class="archive-title-line">
+            <h3 class="archive-item-title">Kinstugi Ingot Pendant</h3>
+            <span class="archive-price">₹4,500</span>
+          </div>
+          <span class="archive-materials">Earthenware Fragment Clad in 18k Recycled Gold Ingot</span>
+          <p class="archive-note">Ancient pottery shard stabilized forever inside liquid gold seams.</p>
+          <button class="btn-inspect-spec" data-id="7">Inspect Specimen →</button>
+        </div>
+      </article>
+
+      <!-- Item 8 -->
+      <article class="archive-card" data-category="rings">
+        <div class="archive-media" data-tilt>
+          <div class="washi-tape washi-corner"></div>
+          <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=700&q=80" alt="Aura Pavé Stacker" class="archive-img" />
+          <span class="spec-id-tag">No. 08 / RNG</span>
+        </div>
+        <div class="archive-meta">
+          <div class="archive-title-line">
+            <h3 class="archive-item-title">Aura Wave Band</h3>
+            <span class="archive-price">₹3,400</span>
+          </div>
+          <span class="archive-materials">18k Yellow Gold • 7 Hand-Burnished Flush Micro Diamonds</span>
+          <p class="archive-note">Gentle undulating wave profile designed to stack with solitaire rings.</p>
+          <button class="btn-inspect-spec" data-id="8">Inspect Specimen →</button>
+        </div>
+      </article>
+
+    </section>
+
+    <!-- TACTILE SPECIMEN LOUPE MODAL -->
+    <div class="specimen-modal" id="specimenModal">
+      <div class="specimen-backdrop" id="modalBackdrop"></div>
+      <div class="specimen-modal-card">
+        <button class="modal-close" id="modalClose">✕</button>
+        <div class="modal-body-grid">
+          <div class="modal-img-col">
+            <div class="washi-tape washi-center"></div>
+            <img src="" alt="Specimen Macro" id="modalImg" />
+            <div class="modal-loupe-crosshair"></div>
+          </div>
+          <div class="modal-info-col">
+            <span class="modal-spec-kicker" id="modalKicker">Archival Specimen</span>
+            <h2 class="modal-spec-title" id="modalTitle">Piece Name</h2>
+            <span class="modal-spec-price" id="modalPrice">₹0</span>
+            <p class="modal-spec-desc" id="modalDesc"></p>
+
+            <div class="modal-details-table">
+              <div class="spec-detail-row">
+                <span class="d-key">Material Origin</span>
+                <span class="d-val" id="modalOrigin">100% Certified Recycled 18k Gold</span>
+              </div>
+              <div class="spec-detail-row">
+                <span class="d-key">Foundry Method</span>
+                <span class="d-val" id="modalMethod">Hand-Poured Charcoal Ingot</span>
+              </div>
+              <div class="spec-detail-row">
+                <span class="d-key">Sizing</span>
+                <span class="d-val">Custom to your finger (Sizes 5 – 12)</span>
+              </div>
+              <div class="spec-detail-row">
+                <span class="d-key">Provenance</span>
+                <span class="d-val">Signed Certificate & Raw Wood Box</span>
+              </div>
+            </div>
+
+            <a href="mailto:concierge@jewel-atelier.com?subject=Piece%20Acquisition%20Inquiry" class="btn-inquire modal-cta">Inquire for Acquisition</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- REFINED ARTISANAL FOOTER -->
+  <footer class="footer-artisan">
+    <div class="footer-tape-accent"></div>
+    <div class="footer-content-wrap">
+      
+      <div class="foot-col-brand">
+        <span class="foot-logo-calligraphy">jewel</span>
+        <span class="foot-creed">honest craft. raw beauty.</span>
+        
+        <div class="foot-hallmarks" title="Studio Hallmarks — Click to inspect">
+          <span class="hallmark-stamp" data-sound="440" title="18k Certified Fairmined Gold">750</span>
+          <span class="hallmark-stamp" data-sound="554" title="Hand-Chiseled Ingot">⚒</span>
+          <span class="hallmark-stamp" data-sound="659" title="Atelier Batch No. 04">№4</span>
+          <span class="hallmark-stamp" data-sound="880" title="Pure Geological Inclusions">✧</span>
+        </div>
+      </div>
+
+      <div class="foot-col-status">
+        <div class="studio-status-box">
+          <span class="status-pulse-dot"></span>
+          <div class="status-texts">
+            <span class="status-state">Archive Vault Active</span>
+            <span class="status-time">India • Direct Studio Melt</span>
+          </div>
+        </div>
+        <p class="status-note">Explore the full catalog of numbered talismans. Every ring, pendant, and cuff is forged to order.</p>
+      </div>
+
+      <div class="foot-col-origin">
+        <button class="btn-return-origin" id="btnReturnTop" aria-label="Return to top of archive">
+          <span class="return-arrow">↑</span>
+          <span class="return-text">Return to Top</span>
+        </button>
+        <div class="footer-page-links">
+          <a href="index.html">Atelier</a> • 
+          <a href="collections.html">Archive</a> • 
+          <a href="anime.html">Anime Edition 匠</a>
+        </div>
+        <span class="foot-copyright">© 2026 Jewel Atelier. All specimens sovereign.</span>
+      </div>
+
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    // Archive Filter Logic & Modal Inspector
+    document.addEventListener('DOMContentLoaded', () => {
+      const filterBtns = document.querySelectorAll('.archive-filter-btn');
+      const cards = document.querySelectorAll('.archive-card');
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const filter = btn.dataset.filter;
+
+          cards.forEach(card => {
+            if (filter === 'all' || card.dataset.category.includes(filter)) {
+              card.style.display = 'flex';
+              card.style.opacity = '1';
+            } else {
+              card.style.display = 'none';
+              card.style.opacity = '0';
+            }
+          });
+        });
+      });
+
+      // Specimen Modal details lookup
+      const specimenModal = document.getElementById('specimenModal');
+      const modalClose = document.getElementById('modalClose');
+      const modalBackdrop = document.getElementById('modalBackdrop');
+      const modalImg = document.getElementById('modalImg');
+      const modalTitle = document.getElementById('modalTitle');
+      const modalPrice = document.getElementById('modalPrice');
+      const modalDesc = document.getElementById('modalDesc');
+      const modalKicker = document.getElementById('modalKicker');
+
+      document.querySelectorAll('.btn-inspect-spec').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const card = btn.closest('.archive-card');
+          const title = card.querySelector('.archive-item-title').textContent;
+          const price = card.querySelector('.archive-price').textContent;
+          const desc = card.querySelector('.archive-note').textContent;
+          const imgSrc = card.querySelector('.archive-img').src;
+          const specTag = card.querySelector('.spec-id-tag').textContent;
+
+          modalTitle.textContent = title;
+          modalPrice.textContent = price;
+          modalDesc.textContent = desc;
+          modalImg.src = imgSrc;
+          modalKicker.textContent = `Archival Specimen • ${specTag}`;
+
+          specimenModal.classList.add('active');
+        });
+      });
+
+      const closeModal = () => specimenModal.classList.remove('active');
+      if (modalClose) modalClose.addEventListener('click', closeModal);
+      if (modalBackdrop) modalBackdrop.addEventListener('click', closeModal);
+    });
+  </script>
+</body>
+</html>
