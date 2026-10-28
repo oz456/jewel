@@ -161,64 +161,8 @@ body {
   to { transform: rotate(360deg); }
 }
 
-/* ==========================================================================
-   CUSTOM JEWELER'S LOUPE CURSOR
-   ========================================================================== */
 .jewel-cursor {
-  position: fixed;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-  z-index: 99999;
-  transform: translate(-50%, -50%);
-  transition: opacity 0.2s ease;
-  mix-blend-mode: difference;
-}
-
-.cursor-dot {
-  width: 5px;
-  height: 5px;
-  background-color: #fff;
-  border-radius: 50%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.cursor-ring {
-  width: 32px;
-  height: 32px;
-  border: 1px solid rgba(255, 255, 255, 0.65);
-  border-radius: 50%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  transition: width 0.3s var(--ease-smooth), height 0.3s var(--ease-smooth), border-color 0.2s ease;
-}
-
-.cursor-sparkle {
-  position: absolute;
-  top: -14px;
-  right: -14px;
-  font-size: 10px;
-  color: #fff;
-  opacity: 0;
-  transition: opacity 0.2s ease, transform 0.3s var(--ease-spring);
-  transform: scale(0.5);
-}
-
-body.cursor-hover .cursor-ring {
-  width: 52px;
-  height: 52px;
-  border-color: rgba(255, 255, 255, 1);
-  border-style: dashed;
-}
-
-body.cursor-hover .cursor-sparkle {
-  opacity: 1;
-  transform: scale(1.1) rotate(15deg);
+  display: none !important;
 }
 
 /* ==========================================================================

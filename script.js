@@ -298,35 +298,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  /* ==========================================================================
-     5. CUSTOM LOUPE CURSOR
-     ========================================================================== */
-  const cursor = document.getElementById('customCursor');
-  let mouseX = -100;
-  let mouseY = -100;
-  let cursorX = -100;
-  let cursorY = -100;
 
-  window.addEventListener('mousemove', (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-  });
-
-  function animateCursor() {
-    cursorX += (mouseX - cursorX) * 0.22;
-    cursorY += (mouseY - cursorY) * 0.22;
-    if (cursor) {
-      cursor.style.transform = `translate(${cursorX}px, ${cursorY}px)`;
-    }
-    requestAnimationFrame(animateCursor);
-  }
-  requestAnimationFrame(animateCursor);
-
-  const hoverTargets = document.querySelectorAll('a, button, [data-drag], .spec-card-polaroid, .sparkle-pedestal, .sound-toggle-pill, .hallmark-stamp');
-  hoverTargets.forEach(target => {
-    target.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
-    target.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
-  });
 
   /* ==========================================================================
      6. RICH PROCEDURAL ATELIER AUDIO (Meditative Music & Chimes)
