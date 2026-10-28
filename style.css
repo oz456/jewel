@@ -2313,3 +2313,101 @@ body.cursor-hover .cursor-sparkle {
     grid-template-columns: 1fr;
   }
 }
+
+
+/* ==========================================================================
+   REFINED HERO CURATED PORTALS (Replacing broken header buttons)
+   ========================================================================== */
+.hero-curated-portals {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 24px;
+  background: rgba(253, 251, 247, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--border-light);
+  padding: 8px 16px;
+  border-radius: 40px;
+  box-shadow: 0 4px 16px rgba(40, 30, 20, 0.05);
+}
+
+.curated-portal-pill {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  transition: all 0.25s var(--ease-spring);
+  color: var(--text-dark);
+}
+
+.curated-portal-pill:hover {
+  background: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(45, 30, 15, 0.08);
+}
+
+.curated-portal-pill.pill-ghibli:hover {
+  background: #fffdf9;
+  box-shadow: 0 4px 12px rgba(157, 50, 36, 0.12);
+}
+
+.pill-prefix {
+  font-family: monospace;
+  font-size: 10px;
+  color: var(--gold-accent);
+  font-weight: 700;
+}
+
+.curated-portal-pill.pill-ghibli .pill-prefix {
+  color: #9d3224;
+}
+
+.pill-name {
+  font-family: var(--font-sans);
+  font-size: 12.5px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--text-dark);
+}
+
+.pill-price-badge {
+  font-size: 10px;
+  letter-spacing: 0.05em;
+  padding: 2px 7px;
+  border-radius: 10px;
+  background: var(--bg-parchment-warm);
+  color: #7d5e23;
+  font-weight: 600;
+}
+
+.pill-stamp-badge {
+  font-size: 11px;
+  padding: 1px 6px;
+  border-radius: 4px;
+  background: #9d3224;
+  color: #ffffff;
+  font-weight: 700;
+  font-family: serif;
+}
+
+.portal-ornament {
+  font-size: 10px;
+  color: var(--gold-accent);
+  opacity: 0.5;
+}
+
+@media (max-width: 640px) {
+  .hero-curated-portals {
+    flex-direction: column;
+    gap: 8px;
+    padding: 12px;
+    border-radius: 16px;
+  }
+  .portal-ornament {
+    display: none;
+  }
+}
